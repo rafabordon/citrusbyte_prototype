@@ -1,7 +1,7 @@
 [
     {
         "name": "cb-prototype",
-        "image": "rafabor/prototype-4-cb:latest",
+        "image": "rafabor/prototype-4-cb:v0.0.2",
         "cpu": 10,
         "memory": 512,
         "links": [],

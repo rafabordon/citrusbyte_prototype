@@ -14,7 +14,7 @@ resource "aws_elb" "cb-prototype-elb" {
 
     health_check {
         healthy_threshold = 5
-        unhealthy_threshold = 3
+        unhealthy_threshold = 5
         timeout = 5
         target = "HTTP:5555/testme"
         interval = 10
