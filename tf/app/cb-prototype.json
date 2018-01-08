@@ -1,0 +1,22 @@
+[
+    {
+        "name": "cb-prototype",
+        "image": "rafabor/prototype-4-cb",
+        "cpu": 10,
+        "memory": 512,
+        "links": [],
+        "portMappings": [
+            {
+                "containerPort": 5555,
+                "hostPort": 5555,
+                "protocol": "tcp"
+            }
+        ],
+        "essential": true,
+        "entryPoint": [],
+        "command": [],
+        "environment": [],
+        "mountPoints": [],
+        "volumesFrom": []
+    }
+]
