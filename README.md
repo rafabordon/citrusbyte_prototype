@@ -14,8 +14,9 @@ Terraform maintains the state of AWS resources in *tfstate* files and compares t
 
 In order to run terraform and use the respective AWS account, create under ~/.aws/ the following files (update as needed):
 
+```
 ~/.aws/config
-[profile *username*]
+[profile username]
 region = us-east-1
 output = json
 
@@ -23,6 +24,7 @@ output = json
 [username]
 aws_access_key_id = XXXXXXXXXXXXXX
 aws_secret_access_key = xxxxxxxxxxxxxxxxxxxxxxxxx
+```
 
 Then in order to make terraform use the right authentication data export the following environment variable:
 `export AWS_PROFILE=username`
