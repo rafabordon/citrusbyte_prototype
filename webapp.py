@@ -11,7 +11,8 @@ def api_root():
 @app.route('/testme', methods = ["GET"])
 def api_testme():
   resp = {
-          "response" : "my_json_payload"
+          "response"  : "my_json_payload",
+          "version"   : "0.0.2" 
          }
   return json.dumps(resp)
 

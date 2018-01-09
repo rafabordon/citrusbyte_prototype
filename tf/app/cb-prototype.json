@@ -2,7 +2,7 @@
     {
         "name": "cb-prototype",
         "image": "rafabor/prototype-4-cb:v0.0.2",
-        "cpu": 10,
+        "cpu": 500,
         "memory": 512,
         "links": [],
         "portMappings": [

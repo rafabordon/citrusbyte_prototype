@@ -1,0 +1,17 @@
+{
+"ServiceNamespace": "ecs",
+"PolicyName": "cb-prototype-cpu-gt-75",
+"ScalableDimension": "ecs:service:DesiredCount",
+"ResourceId": "service/cb-prototype-cluster/cb-prototype",
+"PolicyType": "StepScaling",
+"StepScalingPolicyConfiguration": {
+"AdjustmentType": "PercentChangeInCapacity",
+"Cooldown": 60,
+"StepAdjustments": [
+{
+"ScalingAdjustment": 200,
+"MetricIntervalLowerBound": 0
+}
+]
+}
+}
