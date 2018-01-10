@@ -12,7 +12,7 @@ def api_root():
 def api_testme():
   resp = {
           "response"  : "my_json_payload",
-          "version"   : "0.0.2" 
+          "version"   : "0.0.3" 
          }
   return json.dumps(resp)
 
