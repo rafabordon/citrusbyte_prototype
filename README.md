@@ -16,20 +16,20 @@ There were two versions of the application.
 ## Overview
 There are two set of templates in this project and a directory containing the k8s definitions:
 ### v1:
-- *infra*
-- *app*
+- **infra**
+- **app**
 
 Both have separate state files stored at S3. Infra's build outputs data required by the app project. For example, subnets are created at *infra* and used on *app* via terraform_remote_state data, so we need to export that info from *infra* build.
 
 ### v2:
-- *k8s*
+- **k8s**
 
 k8s, is a directory that contains:
 
-- cbv2-prototype-pod.yml: just a POD definition for the application. I used deployment to betterhandling of Replicas Controller and replicas Set.
-- cbv2-prototype-deployment.yml: Deployment provides declarative updates to PODs and ReplicaSets.
-- cbv2-prototype-autoscaling.yml: Using Horizintal Pod Autoscaler the PODs are scaled out/in in the deployment used. It is based on CPUUtilization.
-- cbv2-prototype-service.yml: This service is the type LoadBalancer. It manages an ELB to register the EC2 runnning the K8s Nodes.
+- cbv2-prototype-pod.yml *just a POD definition for the application. I used deployment to betterhandling of Replicas Controller and replicas Set.*
+- cbv2-prototype-deployment.yml *Deployment provides declarative updates to PODs and ReplicaSets.*
+- cbv2-prototype-autoscaling.yml *Using Horizintal Pod Autoscaler the PODs are scaled out/in in the deployment used. It is based on CPUUtilization.*
+- cbv2-prototype-service.yml *This service is the type LoadBalancer. It manages an ELB to register the EC2 runnning the K8s Nodes.*
 
 ## Terraform
 Terraform maintains the state of AWS resources in *tfstate* files and compares the resources declared in the Terraform scripts to determine whether changes to the infrastructure should be made. Terraform stores the state files remotely in S3 and can be referenced by other scripts to integrate with and utilize the resources.
@@ -49,7 +49,8 @@ aws_secret_access_key = xxxxxxxxxxxxxxxxxxxxxxxxx
 ```
 
 Then in order to make terraform use the right authentication data export the following environment variable:
-`export AWS_PROFILE=username`
+
+- `export AWS_PROFILE=username`
  
 ### Infra
 #### Networking
@@ -80,6 +81,7 @@ Pre-requirement: the version to be deployed should be available on DockerHub.
 ### v1:
 
 In order to deploy a new version of the app that is running on ECS, there are two required steps:
+
 - Update the tf/app/cb-prototype.json and run `terraform apply`
   `"image": "rafabor/prototype-4-cb:v0.0.2"` , specify the tag of the version to be deployed.
 - Execute:
@@ -89,6 +91,7 @@ In order to deploy a new version of the app that is running on ECS, there are tw
 ### v2:
 
 In order to deploy a new version of the app that is running on K8S only one command is needed:
+
 - `kubectl set image deployment/$DEPLOYMENT_NAME $CONTAINER_NAME=$IMAGE`
   $DEPLOYMENT_NAME: cb-prototype-deployment
   $CONTAINER_NAME:  k8s-cbv2
