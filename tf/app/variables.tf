@@ -10,8 +10,8 @@ data  "terraform_remote_state"  "infra"{
 
 variable  "ecs_cluster_name"  { default = "cb-prototype-cluster"} 
 variable  "autoscale_min"     { default = 3 }
-variable  "autoscale_max"     { default = 5 }
-variable  "autoscale_desired" { default = 3 }
+variable  "autoscale_max"     { default = 12 }
+variable  "autoscale_desired" { default = 6 }
 variable  "ami"               { default = "ami-2d085357" }
 variable  "instance_type"     { default = "t2.micro" }
 variable  "hosted_zone_id"    { default = "Z2CTIR018SPWFG"  } 

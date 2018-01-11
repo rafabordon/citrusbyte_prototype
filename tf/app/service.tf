@@ -13,11 +13,11 @@ resource "aws_elb" "cb-prototype-elb" {
     }
 
     health_check {
-        healthy_threshold = 5
-        unhealthy_threshold = 5
-        timeout = 5
+        healthy_threshold = 2
+        unhealthy_threshold = 6
+        timeout = 10
         target = "HTTP:5555/testme"
-        interval = 10
+        interval = 15
     }
 
     cross_zone_load_balancing = true
@@ -32,8 +32,9 @@ resource "aws_ecs_service" "cb-prototype" {
     name = "cb-prototoype"
     cluster = "${aws_ecs_cluster.cb-cluster.id}"
     task_definition = "${aws_ecs_task_definition.cb-prototype.arn}"
+    deployment_minimum_healthy_percent  = 0
     iam_role = "${aws_iam_role.cb_service_role.arn}"
-    desired_count = 3
+    desired_count = 6
     depends_on = ["aws_iam_role_policy.cb_service_role_policy"]
 
     load_balancer {

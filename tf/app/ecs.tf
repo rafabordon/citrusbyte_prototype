@@ -28,7 +28,7 @@ resource "aws_launch_configuration" "ecs" {
 
 resource "aws_appautoscaling_target" "ecs_target" {
   max_capacity       = 20
-  min_capacity       = 3
+  min_capacity       = 0
   resource_id        = "service/${var.ecs_cluster_name}/${aws_ecs_service.cb-prototype.name}"
   role_arn           = "${aws_iam_role.cb_service_role.arn}"
   scalable_dimension = "ecs:service:DesiredCount"

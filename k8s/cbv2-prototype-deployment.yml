@@ -11,7 +11,7 @@ spec:
     spec:
       containers:
       - name: k8s-cbv2
-        image:  rafabor/prototype-4-cb
+        image:  rafabor/prototype-4-cb:v0.0.1
         ports:  
         - name: cbv2-port
           containerPort: 5555
