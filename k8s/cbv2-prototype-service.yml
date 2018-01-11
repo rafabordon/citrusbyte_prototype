@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata: 
+  name: cbv2-prototype-service
+spec:
+  ports:
+  - port: 80
+    targetPort: cbv2-port
+    protocol: TCP
+  selector:
+    app:  cb-prototype
+  type: LoadBalancer

@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: cbv2-prototype
+  labels:
+    app:  cb-prototype
+spec:
+  containers:
+  - name: k8s-cbv2
+    image:  rafabor/prototype-4-cb
+    ports:  
+    - name: cbv2-port
+      containerPort: 5555

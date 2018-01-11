@@ -1,0 +1,20 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: cb-prototype-deployment
+spec:
+  replicas: 6
+  template:
+    metadata:
+      labels:
+        app:  cb-prototype
+    spec:
+      containers:
+      - name: k8s-cbv2
+        image:  rafabor/prototype-4-cb
+        ports:  
+        - name: cbv2-port
+          containerPort: 5555
+        resources:
+          requests:
+            cpu:  200m
