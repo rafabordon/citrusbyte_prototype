@@ -32,9 +32,9 @@ resource "aws_ecs_service" "cb-prototype" {
     name = "cb-prototoype"
     cluster = "${aws_ecs_cluster.cb-cluster.id}"
     task_definition = "${aws_ecs_task_definition.cb-prototype.arn}"
-    deployment_minimum_healthy_percent  = 0
+    deployment_minimum_healthy_percent  = 50
     iam_role = "${aws_iam_role.cb_service_role.arn}"
-    desired_count = 6
+    desired_count = 3
     depends_on = ["aws_iam_role_policy.cb_service_role_policy"]
 
     load_balancer {
